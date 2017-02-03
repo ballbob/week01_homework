@@ -16,3 +16,6 @@ def add_or_remove_cash(hash,cash)
   return hash[:admin][:total_cash]
 end
 
+def pets_sold(shop)
+  return shop[:admin][:pets_sold]
+end
