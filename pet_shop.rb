@@ -19,3 +19,11 @@ end
 def pets_sold(shop)
   return shop[:admin][:pets_sold]
 end
+
+def change_pets_sold(shop,number)
+  current = (shop[:admin][:pets_sold]).to_i
+  addition = number.to_i
+  newvalue = (current + addition).to_i
+  shop[:admin][:pets_sold] = newvalue
+  return shop[:admin][:pets_sold]
+end  
