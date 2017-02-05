@@ -69,3 +69,6 @@ def customer_pet_count(arrayinput)
   arrayinput[:pets].count
 end
 
+def add_pet_to_customer(customer,newpet)
+  customer[:pets].push(newpet)
+end
