@@ -82,26 +82,26 @@ class TestPetShop < Minitest::Test
     assert_equal(1000, sum)
   end
 
-#  def test_add_or_remove_cash__add
-#    cash = add_or_remove_cash(@pet_shop,10)
-#    assert_equal(1010, cash)
-#  end
+  def test_add_or_remove_cash__add
+    cash = add_or_remove_cash(@pet_shop,10)
+    assert_equal(1010, cash)
+  end
 
   def test_add_or_remove_cash_remove
     cash = add_or_remove_cash(@pet_shop,-10)
     assert_equal(990, cash)
   end
 
-   #def test_pets_sold
-   #  sold = pets_sold(@pet_shop)
-   #  assert_equal(0, sold)
-   #end
+  def test_pets_sold
+    sold = pets_sold(@pet_shop)
+    assert_equal(0, sold)
+  end
 
-#   def test_increase_pets_sold
-#     change_pets_sold(@pet_shop,2)
-#     sold = @pet_shop[:admin][:pets_sold]
-#     assert_equal(2, sold)
-#   end
+  def test_increase_pets_sold
+    change_pets_sold(@pet_shop,2)
+    sold = @pet_shop[:admin][:pets_sold]
+    assert_equal(2, sold)
+  end
 
    def test_stock_count
      count = stock_count(@pet_shop)
@@ -145,11 +145,11 @@ class TestPetShop < Minitest::Test
      assert_equal(0, count)
    end
 
-#   def test_add_pet_to_customer
-#     customer = @customers[0]
-#     add_pet_to_customer(customer, @new_pet)
-#     assert_equal(1, customer_pet_count(customer))
-#   end
+  def test_add_pet_to_customer
+    customer = @customers[0]
+    add_pet_to_customer(customer, @new_pet)
+    assert_equal(1, customer_pet_count(customer))
+  end
 
   # # OPTIONAL
 
@@ -167,16 +167,14 @@ class TestPetShop < Minitest::Test
 
   # #These are 'integration' tests so we want multiple asserts.
   # #If one fails the entire test should fail
-# def test_sell_pet_to_customer__pet_found
-#   customer = @customers[0]
-#   pet = find_pet_by_name(@pet_shop,"Arthur")
-
-#   sell_pet_to_customer(@pet_shop, pet, customer)
-
-#   assert_equal(1, customer_pet_count(customer))
-#   assert_equal(1, pets_sold(@pet_shop))
-#   assert_equal(1900, total_cash(@pet_shop))
-# end
+ def test_sell_pet_to_customer__pet_found
+   customer = @customers[0]
+   pet = find_pet_by_name(@pet_shop,"Arthur")
+   sell_pet_to_customer(@pet_shop, pet, customer)
+   assert_equal(1, customer_pet_count(customer))
+   assert_equal(1, pets_sold(@pet_shop))
+   assert_equal(1900, total_cash(@pet_shop))
+ end
 
    def test_sell_pet_to_customer__pet_not_found
      customer = @customers[0]
@@ -186,16 +184,14 @@ class TestPetShop < Minitest::Test
      assert_equal(0, pets_sold(@pet_shop))
      assert_equal(1000, total_cash(@pet_shop))
    end
-
-  # def test_sell_pet_to_customer__insufficient_funds
-  #   customer = @customers[1]
-  #   pet = find_pet_by_name(@pet_shop,"Arthur")
-
-  #   sell_pet_to_customer(@pet_shop, pet, customer)
-
-  #   assert_equal(0, customer_pet_count(customer))
-  #   assert_equal(0, pets_sold(@pet_shop))
-  #   assert_equal(1000, total_cash(@pet_shop))
-  # end
+#
+   def test_sell_pet_to_customer__insufficient_funds
+     customer = @customers[1]
+     pet = find_pet_by_name(@pet_shop,"Arthur")
+     sell_pet_to_customer(@pet_shop, pet, customer)
+     assert_equal(0, customer_pet_count(customer))
+     assert_equal(0, pets_sold(@pet_shop))
+     assert_equal(1000, total_cash(@pet_shop))
+   end
 
 end

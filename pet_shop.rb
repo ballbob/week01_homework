@@ -96,8 +96,11 @@ end
 
 
 def sell_pet_to_customer(shop,newpet,customer)
-  if find_pet_by_name(shop,newpet) == nil
-    return "no"
+  if newpet == nil 
+    return nil
+  end
+  if customer_can_afford_pet(customer,newpet) == false
+    return nil
   end
   for pet in shop[:pets]
     if pet[:name] == newpet[:name]
