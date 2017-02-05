@@ -44,3 +44,10 @@ def pets_by_breed(shop,breed)
 end
 #received help from Darren on this: I had been using .include? in shop[:pets][:breed], not realising I'd already been going through the pets hash.
 
+def find_pet_by_name(shop,petname)
+  for pet in shop[:pets]
+    if pet[:name] == petname.to_s
+      return pet
+    end
+  end
+end
