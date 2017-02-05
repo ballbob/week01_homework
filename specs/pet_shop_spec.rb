@@ -97,26 +97,26 @@ class TestPetShop < Minitest::Test
    #  assert_equal(0, sold)
    #end
 
-   def test_increase_pets_sold
-     change_pets_sold(@pet_shop,2)
-     sold = @pet_shop[:admin][:pets_sold]
-     assert_equal(2, sold)
+#   def test_increase_pets_sold
+#     change_pets_sold(@pet_shop,2)
+#     sold = @pet_shop[:admin][:pets_sold]
+#     assert_equal(2, sold)
+#   end
+
+   def test_stock_count
+     count = stock_count(@pet_shop)
+     assert_equal(6, count)
    end
 
-  # def test_stock_count
-  #   count = stock_count(@pet_shop)
-  #   assert_equal(6, count)
-  # end
+   def test_all_pets_by_breed__found
+     pets = pets_by_breed(@pet_shop, "British Shorthair")
+     assert_equal(2, pets.count)
+   end
 
-  # def test_all_pets_by_breed__found
-  #   pets = pets_by_breed(@pet_shop, "British Shorthair")
-  #   assert_equal(2, pets.count)
-  # end
-
-  # def test_all_pets_by_breed__not_found
-  #   pets = pets_by_breed(@pet_shop, "Dalmation")
-  #   assert_equal(0, pets.count)
-  # end
+   def test_all_pets_by_breed__not_found
+     pets = pets_by_breed(@pet_shop, "Dalmatian")
+     assert_equal(0, pets.count)
+   end
 
   # def test_find_pet_by_name__returns_pet
   #   pet = find_pet_by_name(@pet_shop, "Arthur")
