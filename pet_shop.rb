@@ -50,4 +50,5 @@ def find_pet_by_name(shop,petname)
       return pet
     end
   end
+  pet = Hash.new
 end
