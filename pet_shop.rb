@@ -50,5 +50,13 @@ def find_pet_by_name(shop,petname)
       return pet
     end
   end
-  pet = Hash.new
+  pet = nil
+end
+
+def remove_pet_by_name(shop,petname)
+  for pet in shop[:pets]
+    if pet[:name] == petname.to_s
+      shop[:pets].delete(pet)
+    end 
+  end
 end
