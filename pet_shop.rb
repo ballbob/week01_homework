@@ -87,7 +87,7 @@ end
 
 
 def customer_can_afford_pet(customerinput,putativepet)
-  if customerinput[:cash] > putativepet[:price] == true
+  if customerinput[:cash] > putativepet[:price]
      return true
   else
       return false
@@ -96,6 +96,9 @@ end
 
 
 def sell_pet_to_customer(shop,newpet,customer)
+  if find_pet_by_name(shop,newpet) == nil
+    return "no"
+  end
   for pet in shop[:pets]
     if pet[:name] == newpet[:name]
       petprice = (pet[:price])
